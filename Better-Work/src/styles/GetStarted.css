@@ -1,0 +1,24 @@
+/* src/styles/GetStarted.css */
+
+.get-started {
+    text-align: center;
+    margin: 50px 0;
+  }
+  
+  .btn-get-started {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-get-started:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
