@@ -13,7 +13,7 @@
   
   .why-header h1 {
     font-size: 2.5rem;
-    color: #333;
+    color: green;
   }
   
   .why-header p {
@@ -36,7 +36,7 @@
   }
   
   .talent-category h2 {
-    color: #007bff;
+    color: green;
     font-size: 1.5rem;
     margin-bottom: 10px;
   }
