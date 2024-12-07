@@ -1,0 +1,29 @@
+/* src/styles/MainContent.css */
+.main-content {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f9f9f9;
+  }
+  
+
+  .hero-section {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .btn-get-started {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  h1 {
+    color: black;
+  }
+  
+  p {
+    color: black;
+  }

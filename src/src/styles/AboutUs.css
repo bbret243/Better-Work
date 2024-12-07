@@ -1,0 +1,76 @@
+/* src/styles/AboutUs.css */
+
+.about-us {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .about-us-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .about-us-header h1 {
+    color: green;
+    font-size: 2.5rem;
+  }
+  
+  .about-us-header p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .about-us-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .ceo-section,
+  .mission-section,
+  .values-section,
+  .team-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mission-section h2,
+  .values-section h2,
+  .team-section h2 {
+    color: green;
+    margin-bottom: 10px;
+  }
+  
+  .values-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .values-section li {
+    margin-bottom: 10px;
+  }
+  
+  .values-section li strong {
+    color: green;
+  }
+  
+  .team-section p {
+    line-height: 1.6;
+  }
+
+  .ceo-section {
+    color: green;
+  }
+
+  a {
+    color: green;
+  }
+  
+  p {
+    color: black;
+  }

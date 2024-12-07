@@ -1,0 +1,30 @@
+/* src/styles/index.css */
+
+/* Reset margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Make the root div take the full screen */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Flex container to hold content */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
