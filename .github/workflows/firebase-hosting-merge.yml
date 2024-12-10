@@ -23,7 +23,7 @@ jobs:
         run: npm install
         
       - name: Pull Mikes Changes
-        run: git pull origin/mike
+        run: git pull mike
 
       - name: Build project
         run: npm run build
