@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import FindTalent from './pages/FindTalent';

@@ -17,10 +17,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Use the version of Node.js that your project requires
+          node-version: '22'  # Use the version of Node.js that your project requires
 
       - name: Install dependencies
         run: npm install
+        
+      - name: Pull Mikes Changes
+        run: git pull origin/mike
 
       - name: Build project
         run: npm run build
