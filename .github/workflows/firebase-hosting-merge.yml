@@ -17,13 +17,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Use the version of Node.js that your project requires
+          node-version: '17'  # Use the version of Node.js that your project requires
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
         run: npm run build
+
+      - name: Start project
+        run: npm run start
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
