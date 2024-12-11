@@ -40,7 +40,6 @@ export class FormSubmitJob {
    submit = async () => {
     try {
       this.loadingCallback(true)
-      alert(JSON.stringify(this.formData))
       const response = await this.actionCallback(this.formData);
       if(!response) {
         this.failCallback("Response undefined.")
