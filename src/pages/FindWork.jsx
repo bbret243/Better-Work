@@ -1,5 +1,4 @@
 // src/pages/FindWork.jsx
-import React, { useEffect, useState } from 'react';
 import { getJobs } from '../services/apiService';
 import JobCard from '../components/JobCard';
 import useFetch from '../hooks/useFetch';

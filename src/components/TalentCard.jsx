@@ -1,5 +1,4 @@
 // src/components/TalentCard.jsx
-import React from 'react';
 import '../styles/TalentCard.css';
 
 const TalentCard = ({ talent }) => {
