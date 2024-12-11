@@ -1,0 +1,15 @@
+{
+  "title": "Login",
+  "messages": {
+    "success": "Successfully logged in as "
+  },
+  "inputs": [{
+    "type": "email",
+    "name": "email",
+    "placeholder": "Email"
+  }, {
+    "type": "password",
+    "name": "password",
+    "placeholder": "Password"
+  }]
+}
