@@ -1,6 +1,6 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { describe, test, it, expect } from 'jest'
 import App from '../App';
 
 describe('App', () => {

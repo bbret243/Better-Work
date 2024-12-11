@@ -1,5 +1,4 @@
 // src/pages/WhyBetterWork.jsx
-import React from 'react';
 import '../styles/WhyBetterWork.css';
 
 const WhyBetterWork = () => {

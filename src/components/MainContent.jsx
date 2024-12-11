@@ -1,5 +1,4 @@
 // src/components/MainContent.jsx
-import React from 'react';
 import '../styles/MainContent.css';
 import GetStarted from './GetStarted';
 
