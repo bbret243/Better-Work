@@ -1,94 +1,64 @@
-import { useState } from "react";
-import { signup } from "../services/apiService";
+import { useState, useEffect } from "react";
+import { registerUser } from "../services/firebase"
+import { title, inputs} from "./Signup.content.json"
+import { FormInputs } from "../components/FormInputSection"
+import ResponseLabel from '../components/ResponseLabel'
+import { getEventFormData, FormSubmitJob } from '../utils/formUtils'
 import styles from "./SignUp.module.css"; // Import CSS Module
 
+const blankFormData = {
+  firstName: "",
+  lastName: "",
+  address: "",
+  phoneNumber: "",
+  email: "",
+  password: "",
+  role: "Freelancer",
+}
+
 const SignUp = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    address: "",
-    phoneNumber: "",
-    email: "",
-    password: "",
-    role: "Freelancer",
-  });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState();
+  const [error, setError] = useState();
+  const [formData, setFormData] = useState(blankFormData);
+  
+  useEffect(() => {}, [loading, message, error, formData])
+
+  const onBlur = (e) => {
+      setFormData({...formData, ...getEventFormData(e)})
+  }
+  async function handleServerlessSignUp(formData) {
+    const { firstName, lastName, address, phoneNumber, email, password, role } = formData;
+  
+    const additionalData = {
+      firstName,
+      lastName,
+      address,
+      phoneNumber,
+      role,
+    };
+
+    return await registerUser(email, password, additionalData);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await signup(formData);
-      alert(response.data.message);
-    } catch (error) {
-      console.error(error.response.data);
-    }
+    await new FormSubmitJob(e)
+      .formAction(handleServerlessSignUp)
+      .loadingStateChanged(setLoading)
+      .serverMessage(setMessage)
+      .fail(setError)
+      .submit()
   };
-
+  console.log({ error })
   return (
     <div className={styles.formContainer}>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="First Name"
-          value={formData.firstName}
-          onChange={(e) =>
-            setFormData({ ...formData, firstName: e.target.value })
-          }
-          required
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          value={formData.lastName}
-          onChange={(e) =>
-            setFormData({ ...formData, lastName: e.target.value })
-          }
-          required
-        />
-        <input
-          type="text"
-          placeholder="Address"
-          value={formData.address}
-          onChange={(e) =>
-            setFormData({ ...formData, address: e.target.value })
-          }
-          required
-        />
-        <input
-          type="phone"
-          placeholder="Phone Number"
-          value={formData.phoneNumber}
-          onChange={(e) =>
-            setFormData({ ...formData, phoneNumber: e.target.value })
-          }
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={(e) =>
-            setFormData({ ...formData, email: e.target.value })
-          }
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
-          required
-        />
-        <select
-          value={formData.role}
-          onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-        >
-          <option value="Freelancer">Freelancer</option>
-          <option value="Client">Client</option>
-        </select>
-        <button type="submit">Sign Up</button>
+      <h1>{title}</h1>
+      {error && <ResponseLabel type="error">{error}</ResponseLabel>}
+        {message && <ResponseLabel type="success">{message}</ResponseLabel>}
+        <form onSubmit={handleSubmit}>
+        <FormInputs {...{ inputs, onBlur}}/> 
+        <button disabled={loading || error} type="submit">{title}</button>
       </form>
     </div>
   );
