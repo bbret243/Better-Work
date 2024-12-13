@@ -12,10 +12,16 @@ jobs:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: npm run build
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '16.x'
+      - run: npm install -g firebase-tool
+      - run: firebase login:ci    
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BETTER_WORK_2BD59 }}
           projectId: better-work-2bd59
+
+      - uses: actions/checkout@v4
+      - run: npm run build
